@@ -1,0 +1,349 @@
+@keyframes vistoggle {
+  75% {
+
+  }
+}
+
+@keyframes tonext {
+    75% {
+      left: 0;
+    }
+    95% {
+      left: 100%;
+    }
+    98% {
+      left: 100%;
+    }
+    99% {
+      left: 0;
+    }
+  }
+  
+  @keyframes tostart {
+    75% {
+      left: 0;
+    }
+    95% {
+      left: -300%;
+    }
+    98% {
+      left: -300%;
+    }
+    99% {
+      left: 0;
+    }
+  }
+  
+  @keyframes snap {
+    96% {
+      scroll-snap-align: center;
+    }
+    97% {
+      scroll-snap-align: none;
+    }
+    99% {
+      scroll-snap-align: none;
+    }
+    100% {
+      scroll-snap-align: center;
+    }
+  }
+  
+  .crslViewport-Container {
+    box-sizing: border-box;
+    scrollbar-color: transparent transparent; /* thumb and track color */
+    scrollbar-width: 0px;
+  }
+  
+  .crslViewport-Container::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  .crslViewport-Container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .crslViewport-Container::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: none;
+  }
+  
+  .crslViewport-Container {
+    -ms-overflow-style: none;
+  }
+  
+  ol, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .carousel-Container {
+    position: relative;
+    filter: drop-shadow(0 0 10px #0003);
+    perspective: 100px;
+    height: 370px;
+    margin: 0 0 5px 0;
+  }
+  
+  .crslViewport-Container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    overflow-x: scroll;
+    /* counter-reset: item; */
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  }
+  
+  .crslSlider-Container {
+    position: relative;
+    flex: 0 0 100.5%;
+    width: 100%;
+    /*background-color: #f99;*/
+    /* counter-increment: item;   */
+  }
+
+  #crslSlide4 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: url('/shared/img/beyond.png') center center no-repeat;
+    background-size: cover;
+  }
+
+  #crslSlide3 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: url('/shared/img/global_solution_2.png') center center no-repeat;
+    background-size: cover;
+  }
+
+  #crslSlide2 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: url('/shared/img/Inovation.png') center center no-repeat;
+    background-size: cover;
+  }
+
+  #crslSlide1 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: url('/shared/img/Tech_N_Use.png') center center no-repeat;
+    background-size: cover;
+  }
+  
+  .crslSlider-Container:nth-child(even) {
+    background-color: #99f;
+  }
+  
+  .crslSlider-Container:before {
+    /* content: counter(item); */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-40%,70px);
+    color: #fff;
+    font-size: 2em;
+  }
+
+  .crslItemStatement-Container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 5px;
+    font-size: 17px;
+  }
+
+  .crsItemHeader-Conatiner h2, .crslItemStatement-Container p {
+    color: #f8db7b;
+    margin: 0;
+  }
+
+  .crsItemHeader-Conatiner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .crslItem-Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 3px 2px 2px #f8db7b9c;
+    border-radius: 7px;
+    justify-content: center;
+    height: 90px;
+    width: 100%;
+    background-color: #3d044ab3;
+    visibility: visible;
+    margin: 233px 10px 0 10px;
+    padding: 5px;
+    -webkit-text-fill-color: #f8db7b;
+    visibility: visible;
+    z-index: 1;
+
+
+    /*display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 3px 2px 2px #e5a10d6b;
+    border-radius: 7px;*/
+    /*justify-content: flex-end;*/
+    /*height: 100px;
+    width: 100%;
+    background-color: #123461a1;
+    visibility: visible;
+    margin: 220px 50px 40px 50px;
+    padding: 5px;*/
+    /* color: black;*/
+  }
+  
+  .crsl-Snapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: center;
+  }
+  
+  @media (hover: hover) {
+    .crsl-Snapper {
+      animation-name: tonext, snap;
+      animation-timing-function: ease;
+      animation-duration: 7s;
+      animation-iteration-count: infinite;
+    }
+  
+    .crslSlider-Container:last-child .crsl-Snapper {
+      animation-name: tostart, snap;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .crsl-Snapper {
+      animation-name: none;
+    }
+  }
+  
+  .carousel-Container:hover .crsl-Snapper,
+  .carousel-Container:focus-within .crsl-Snapper {
+    animation-name: none;
+  }
+  
+  .crsl-Nav {
+    position: absolute;
+    right: 0;
+    bottom: 1rem;
+    left: 0;
+    text-align: center;
+    visibility: hidden;
+  }
+  
+  .crsl-NavList,
+  .crsl-NavItem {
+    display: inline-block;
+  }
+
+  .crsl-prevOption {
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+  }
+  
+  .crsl-NavButton {
+    display: inline-block;
+    width: .7rem;
+    height: .7rem;
+    background-color: #494949;
+    background-clip: content-box;
+    border: 0.25rem solid transparent;
+    border-radius: 50%;
+    font-size: 0;
+    transition: transform 0.1s;
+  }
+  
+  .carousel-Container::before,
+  .carousel-Container::after,
+  .crsl-prevOption,
+  .crsl-nxtOption {
+    position: absolute;
+    top: 10rem;
+    /* margin-top: 15.5%; */
+    width: 4rem;
+    height: 4rem;
+    transform: translateY(-50%);
+    border-radius: 10%;
+    font-size: 0;
+    outline: 0;
+  }
+  
+  .carousel-Container::before,
+  .crsl-prevOption {
+    left: 0;
+  }
+  
+  .carousel-Container::after,
+  .crsl-nxtOption {
+    right: 0;
+  }
+  
+  .carousel-Container::before,
+  .carousel-Container::after {
+    content: '';
+    z-index: 1;
+    /*background-color: #333;*/
+    background-size: 1.5rem 1.5rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: #fff;
+    font-size: 2.5rem;
+    line-height: 4rem;
+    text-align: center;
+    pointer-events: none;
+  }
+  
+  .carousel-Container::before {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,50 80,100 80,0' fill='%23fff'/%3E%3C/svg%3E");
+  }
+  
+  .carousel-Container::after {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
+  }
+
+  @media only screen and (min-width: 1024px) {
+
+     .carousel-Container {
+      height: 700px;
+      margin-bottom: 10%;
+    }
+
+    .carousel-Container::before,
+    .carousel-Container::after,
+    .crsl-prevOption,
+    .crsl-nxtOption {
+      top: 21rem;
+    }
+
+    .crsl-Nav {
+      visibility: visible;
+    }
+
+    .crslItem-Container {
+      display: flex;
+      justify-content: center;
+      height: 200px;
+      width: 220px;
+      /* background-color: white; */
+      margin: 0 70px;
+      /* visibility: visible;*/
+    }
+    
+  }
